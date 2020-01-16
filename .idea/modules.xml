@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-backend/CoffeeCatProducts/coffeecatproducts.iml" filepath="$PROJECT_DIR$/01-backend/CoffeeCatProducts/coffeecatproducts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-backend/Eureka/eureka.iml" filepath="$PROJECT_DIR$/01-backend/Eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-backend/HystrixDashboard/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/01-backend/HystrixDashboard/hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-backend/ShoppingCart/shoppingcart.iml" filepath="$PROJECT_DIR$/01-backend/ShoppingCart/shoppingcart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-backend/User/user.iml" filepath="$PROJECT_DIR$/01-backend/User/user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/vsproject.iml" filepath="$PROJECT_DIR$/.idea/vsproject.iml" />
+    </modules>
+  </component>
+</project>

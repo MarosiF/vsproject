@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/01-backend/Eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/01-backend/CoffeeCatProducts/pom.xml" />
+        <option value="$PROJECT_DIR$/01-backend/HystrixDashboard/pom.xml" />
+        <option value="$PROJECT_DIR$/01-backend/ShoppingCart/pom.xml" />
+        <option value="$PROJECT_DIR$/01-backend/User/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="13.0.1" project-jdk-type="JavaSDK" />
+</project>
