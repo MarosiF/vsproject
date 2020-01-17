@@ -7,6 +7,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1WSzwVnxvqoxvN4faxTAYs3OA3v" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -15,9 +18,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/01-backend/User" />
   </component>
-  <component name="RunManager" selected="Application.UserApplication">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\vsproject\01-backend\User" />
+      <recent name="D:\Projects\vsproject\01-backend\ShoppingCart" />
+      <recent name="D:\Projects\vsproject\01-backend\HystrixDashboard" />
+      <recent name="D:\Projects\vsproject\01-backend\Eureka" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\vsproject\01-backend\CoffeeCatProducts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CoffeeCatProductsApplication">
     <configuration name="CoffeeCatProductsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vsproject.coffeecatproducts.CoffeeCatProductsApplication" />
       <module name="coffeecatproducts" />
@@ -85,10 +99,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CoffeeCatProductsApplication" />
         <item itemvalue="Application.UserApplication" />
         <item itemvalue="Application.ShoppingCartApplication" />
         <item itemvalue="Application.HystrixDashboardApplication" />
-        <item itemvalue="Application.CoffeeCatProductsApplication" />
         <item itemvalue="Application.EurekaServerApplication" />
       </list>
     </recent_temporary>
@@ -127,6 +141,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1579166450497" />
+    <state x="2610" y="320" key="FileChooserDialogImpl" timestamp="1579293174682">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2610" y="320" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579293174682" />
     <state width="1554" height="281" key="GridCell.Tab.0.bottom" timestamp="1579288207591">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -147,6 +165,10 @@
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1579170501986" />
     <state width="1554" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579288207591" />
+    <state x="2526" y="389" key="com.intellij.ide.util.TipDialog" timestamp="1579293236604">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2526" y="389" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579293236604" />
     <state x="369" y="271" key="new project wizard" timestamp="1579170355532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
