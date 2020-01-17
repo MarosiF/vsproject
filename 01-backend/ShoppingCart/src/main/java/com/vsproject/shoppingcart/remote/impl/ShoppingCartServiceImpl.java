@@ -45,66 +45,64 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 shoppingCartList.add(entry);
             }
         });
-            return shoppingCartList;
+        return shoppingCartList;
     }
 
     @HystrixCommand(fallbackMethod = "reliable4")
     @Override
     public ShoppingCart findOne(Long id) {
-        ShoppingCart shoppingCart = null;
-        Iterable<ShoppingCart> entities = repository.findAll();
-        Iterator iter =entities.iterator();
-        while(iter.hasNext()) {
-            ShoppingCart searchedShoppingCart = (ShoppingCart) iter.next();
-            if(searchedShoppingCart.getId() == id) {
-                shoppingCart = searchedShoppingCart;
-            }
-        }
-        return shoppingCart;
+        return repository.findById(id).get();
 
     }
 
-        @Override
-        public void delete (ShoppingCart shoppingCart){
-            repository.delete(shoppingCart);
-        }
+    @Override
+    public void delete(ShoppingCart shoppingCart) {
+        repository.delete(shoppingCart);
+    }
 
-        @HystrixCommand(fallbackMethod = "reliable5")
-        @Override
-        public ResponseEntity<ShoppingCart> updateShoppingCart (ShoppingCart searchedShoppingCart){
-            ShoppingCart shoppingCart = repository.findById(searchedShoppingCart.getId()).get();
-            if(shoppingCart == null){
-                return ResponseEntity.notFound().build();
-            }
-            shoppingCart.setProductId(searchedShoppingCart.getProductId());
-
-            repository.deleteById(shoppingCart.getId());
-            repository.save(shoppingCart);
-            return ResponseEntity.ok(shoppingCart);
+    @HystrixCommand(fallbackMethod = "reliable5")
+    @Override
+    public ResponseEntity<ShoppingCart> updateShoppingCart(ShoppingCart searchedShoppingCart) {
+        ShoppingCart shoppingCart = repository.findById(searchedShoppingCart.getId()).get();
+        if (shoppingCart == null) {
+            return ResponseEntity.notFound().build();
         }
+        shoppingCart.setUser_id(searchedShoppingCart.getUser_id());
+        shoppingCart.setProductId(searchedShoppingCart.getProductId());
+        shoppingCart.setAmount(searchedShoppingCart.getAmount());
+
+        repository.deleteById(shoppingCart.getId());
+        repository.save(shoppingCart);
+        return ResponseEntity.ok(shoppingCart);
+    }
 
     //resilience fallback
-
-    public ShoppingCart reliable(ShoppingCart shoppingCart){
+    public ShoppingCart reliable(ShoppingCart shoppingCart) {
         ShoppingCart shoppingCart1 = new ShoppingCart();
-        shoppingCart1.setId(0);
+        shoppingCart1.setUser_id(0);
         shoppingCart1.setProductId(0);
+        shoppingCart1.setAmount(0);
         return shoppingCart1;
     }
 
-    public List<ShoppingCart> reliable2(){
+    public List<ShoppingCart> reliable2() {
         return new ArrayList<ShoppingCart>();
     }
 
-    public List<ShoppingCart> reliable3(Long userid){
+    public List<ShoppingCart> reliable3(Long userid) {
         return new ArrayList<ShoppingCart>();
     }
 
     public ShoppingCart reliable4(Long id) {
-        return new ShoppingCart();
+        ShoppingCart c = new ShoppingCart();
+        c.setUser_id(0);
+        c.setProductId(0);
+        c.setAmount(0);
+        return c;
     }
+
     public ResponseEntity<ShoppingCart> reliable5(ShoppingCart searchedShoppingCart) {
         return ResponseEntity.notFound().build();
     }
 
-    }
+}

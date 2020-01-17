@@ -10,16 +10,6 @@ import javax.persistence.*;
 @Data
 public class ShoppingCart {
 
-    public ShoppingCart(){}
-
-    public ShoppingCart(Long id,Long user_id,Long product_id,int amount) {
-        this();
-        this.id = id;
-        this.user_id = user_id;
-        this.productId = product_id;
-        this.amount = amount;
-    }
-
     @Id
     @Column(name = "id")
     private long id;
@@ -32,6 +22,17 @@ public class ShoppingCart {
 
     @Column(name = "amount")
     private int amount;
+
+    public ShoppingCart() {
+    }
+
+    public ShoppingCart(Long id, Long user_id, Long product_id, int amount) {
+        this();
+        this.id = id;
+        this.user_id = user_id;
+        this.productId = product_id;
+        this.amount = amount;
+    }
 
     public long getId() {
         return id;

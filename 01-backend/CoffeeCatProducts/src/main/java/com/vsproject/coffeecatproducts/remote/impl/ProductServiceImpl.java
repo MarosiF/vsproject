@@ -70,4 +70,24 @@ public class ProductServiceImpl implements ProductService {
 
         return ResponseEntity.ok(product);
     }
+
+    public Product reliable(Product product) {
+        Product product1 = new Product();
+        product1.setName("default name");
+        return product1;
+    }
+
+    public List<Product> reliable2() {
+        return new ArrayList<Product>();
+    }
+
+    public Product reliable3(Long id) {
+        Product p = new Product();
+        p.setName("default");
+        return p;
+    }
+
+    public ResponseEntity<Product> reliable4(Product product) {
+        return ResponseEntity.notFound().build();
+    }
 }

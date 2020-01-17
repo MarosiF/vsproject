@@ -13,26 +13,35 @@ import java.util.List;
 public class ShoppingCartController {
 
     private final ShoppingCartService shoppingCartService;
-    public ShoppingCartController(ShoppingCartService service) {this.shoppingCartService = service;}
 
-    @PostMapping("/add")
-    public ShoppingCart createShoppingCart(@RequestBody ShoppingCart shoppingCart) {return this.shoppingCartService.crateShoppingCart(shoppingCart);}
+    public ShoppingCartController(ShoppingCartService service) {
+        this.shoppingCartService = service;
+    }
+
+    @PostMapping()
+    public ShoppingCart createShoppingCart(@RequestBody ShoppingCart shoppingCart) {
+        return this.shoppingCartService.crateShoppingCart(shoppingCart);
+    }
 
     @GetMapping
-    public ResponseEntity<List<ShoppingCart>> getAllShoppingCart() {return new ResponseEntity<>(this.shoppingCartService.findAll(), HttpStatus.OK);}
+    public ResponseEntity<List<ShoppingCart>> getAllShoppingCart() {
+        return new ResponseEntity<>(this.shoppingCartService.findAll(), HttpStatus.OK);
+    }
 
     @GetMapping("/user/{userid}")
-    public ResponseEntity<List<ShoppingCart>> getShoppingCartById(@PathVariable(value = "userid") Long shoppingCartId) {return new ResponseEntity<>(this.shoppingCartService.findGroup(shoppingCartId), HttpStatus.OK);}
+    public ResponseEntity<List<ShoppingCart>> getShoppingCartByUserId(@PathVariable(value = "userid") Long shoppingCartId) {
+        return new ResponseEntity<>(this.shoppingCartService.findGroup(shoppingCartId), HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ShoppingCart> getShoppingCartByIdandProductId(@PathVariable (value = "id") Long id) {
+    public ResponseEntity<ShoppingCart> getShoppingCartById(@PathVariable(value = "id") Long id) {
         return new ResponseEntity<>(this.shoppingCartService.findOne(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ShoppingCart> deleteShoppingCart(@PathVariable(value = "id")Long id){
+    public ResponseEntity<ShoppingCart> deleteShoppingCart(@PathVariable(value = "id") Long id) {
         ShoppingCart shoppingCart = shoppingCartService.findOne(id);
-        if(shoppingCart == null) {
+        if (shoppingCart == null) {
             return ResponseEntity.notFound().build();
         }
         shoppingCartService.delete(shoppingCart);
@@ -40,8 +49,8 @@ public class ShoppingCartController {
         return ResponseEntity.ok().body(shoppingCart);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<ShoppingCart> updateShoppingCart(@RequestBody ShoppingCart shoppingCart){
+    @PutMapping
+    public ResponseEntity<ShoppingCart> updateShoppingCart(@RequestBody ShoppingCart shoppingCart) {
         return shoppingCartService.updateShoppingCart(shoppingCart);
     }
 
