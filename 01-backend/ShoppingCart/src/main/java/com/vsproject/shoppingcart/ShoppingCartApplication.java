@@ -8,7 +8,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableHystrix
-@EnableFeignClients
 @EnableEurekaClient
 public class ShoppingCartApplication {
 

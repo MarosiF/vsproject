@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class ShoppingCart {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 
@@ -26,12 +27,11 @@ public class ShoppingCart {
     public ShoppingCart() {
     }
 
-    public ShoppingCart(Long id, Long user_id, Long product_id, int amount) {
-        this();
-        this.id = id;
-        this.user_id = user_id;
-        this.productId = product_id;
+    public ShoppingCart(Long userid, Long productId, int amount) {
+        this.user_id = userid;
+        this.productId = productId;
         this.amount = amount;
+
     }
 
     public long getId() {

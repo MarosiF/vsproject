@@ -76,6 +76,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return ResponseEntity.ok(shoppingCart);
     }
 
+    @Override
+    public void createShoppingCartEntry(Long userid, Long productid, int amount) {
+        ShoppingCart shoppingCart = new ShoppingCart(userid, productid, amount);
+        repository.save(shoppingCart);
+    }
+
     //resilience fallback
     public ShoppingCart reliable(ShoppingCart shoppingCart) {
         ShoppingCart shoppingCart1 = new ShoppingCart();

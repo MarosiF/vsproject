@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/shoppingcart")
 public class ShoppingCartController {
 
     private final ShoppingCartService shoppingCartService;
@@ -18,27 +17,27 @@ public class ShoppingCartController {
         this.shoppingCartService = service;
     }
 
-    @PostMapping()
+    @PostMapping("shoppingcart")
     public ShoppingCart createShoppingCart(@RequestBody ShoppingCart shoppingCart) {
         return this.shoppingCartService.crateShoppingCart(shoppingCart);
     }
 
-    @GetMapping
+    @GetMapping("shoppingcart")
     public ResponseEntity<List<ShoppingCart>> getAllShoppingCart() {
         return new ResponseEntity<>(this.shoppingCartService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{userid}")
+    @GetMapping("shoppingcart/user/{userid}")
     public ResponseEntity<List<ShoppingCart>> getShoppingCartByUserId(@PathVariable(value = "userid") Long shoppingCartId) {
         return new ResponseEntity<>(this.shoppingCartService.findGroup(shoppingCartId), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("shoppingcart/{id}")
     public ResponseEntity<ShoppingCart> getShoppingCartById(@PathVariable(value = "id") Long id) {
         return new ResponseEntity<>(this.shoppingCartService.findOne(id), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("shoppingcart/{id}")
     public ResponseEntity<ShoppingCart> deleteShoppingCart(@PathVariable(value = "id") Long id) {
         ShoppingCart shoppingCart = shoppingCartService.findOne(id);
         if (shoppingCart == null) {
@@ -49,9 +48,14 @@ public class ShoppingCartController {
         return ResponseEntity.ok().body(shoppingCart);
     }
 
-    @PutMapping
+    @PutMapping("shoppingcart")
     public ResponseEntity<ShoppingCart> updateShoppingCart(@RequestBody ShoppingCart shoppingCart) {
         return shoppingCartService.updateShoppingCart(shoppingCart);
+    }
+
+    @PostMapping("users/shoppingcart/{userid}/{productid}/{amount}")
+    public void createShoppingCartEntry(@PathVariable("userid") Long userid, @PathVariable("productid") Long productid, @PathVariable("amount") int amount) {
+        shoppingCartService.createShoppingCartEntry(userid, productid,amount);
     }
 
 

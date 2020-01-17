@@ -18,4 +18,6 @@ public interface ShoppingCartService {
     void delete(ShoppingCart shoppingCart);
 
     ResponseEntity<ShoppingCart> updateShoppingCart(ShoppingCart shoppingCart);
+
+    void createShoppingCartEntry(Long userid, Long productid, int amount);
 }

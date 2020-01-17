@@ -3,10 +3,12 @@ package com.vsproject.user.rest;
 
 import com.vsproject.user.jpa.entity.User;
 import com.vsproject.user.remote.UserService;
+import org.hibernate.event.spi.PostCollectionRemoveEventListener;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -49,4 +51,12 @@ public class UserController {
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
+
+    @CrossOrigin("http://localhost:4200")
+    @PostMapping("/shoppingcart/{userid}/{productid}/{amount}")
+    public void createShoppingCart(@PathVariable(value = "userid") Long userid, @PathVariable(value = "productid") Long productid, @PathVariable(value = "amount") int amount) {
+            userService.addShoppingCartEntry(userid,productid,amount);
+    }
+
+
 }

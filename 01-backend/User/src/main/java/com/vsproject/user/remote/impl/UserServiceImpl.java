@@ -4,19 +4,25 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.vsproject.user.jpa.UserRepository;
 import com.vsproject.user.jpa.entity.User;
 import com.vsproject.user.remote.UserService;
+import com.vsproject.user.remote.rest.ShoppingCartClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    @Autowired
+    private final ShoppingCartClient shoppingCartClient;
+
+    public UserServiceImpl(UserRepository userRepository, ShoppingCartClient shoppingCartClient) {
         this.repository = userRepository;
+        this.shoppingCartClient = shoppingCartClient;
     }
 
 
@@ -59,6 +65,11 @@ public class UserServiceImpl implements UserService {
         repository.deleteById(user.getId());
         repository.save(user);
         return ResponseEntity.ok(user);
+    }
+
+    @Override
+    public void addShoppingCartEntry(Long userid, Long productid, int amount) {
+        shoppingCartClient.createShoppingCartEntry(userid, productid, amount);
     }
 
     //resilience fallback
