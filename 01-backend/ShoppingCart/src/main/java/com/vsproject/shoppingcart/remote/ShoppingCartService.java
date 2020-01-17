@@ -11,7 +11,9 @@ public interface ShoppingCartService {
 
     List<ShoppingCart> findAll();
 
-    List<ShoppingCart> findOne(Long id);
+    List<ShoppingCart> findGroup(Long userId);
+
+    ShoppingCart findOne(Long id);
 
     void delete(ShoppingCart shoppingCart);
 
